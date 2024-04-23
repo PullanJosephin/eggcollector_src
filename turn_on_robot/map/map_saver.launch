@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="map_server" type="map_saver" name="map_saver1" args="-f /home/collector/catkin_ws/src/turn_on_wheeltec_robot/map/WHEELTEC" output="screen">	
+	</node>
+</launch>
