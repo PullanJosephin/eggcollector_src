@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="collectorarmv3">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm">
+        <chain base_link="base_link" tip_link="joint4"/>
+    </group>
+    <group name="claw">
+        <joint name="joint5"/>
+    </group>
+    <group name="camera_arm">
+        <chain base_link="arm_base" tip_link="joint4"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="arm_default" group="arm">
+        <joint name="arm_base" value="0"/>
+        <joint name="joint1" value="0"/>
+        <joint name="joint2" value="0"/>
+        <joint name="joint3" value="0"/>
+        <joint name="joint4" value="0"/>
+    </group_state>
+    <group_state name="arm_retract" group="arm">
+        <joint name="arm_base" value="-1.57"/>
+        <joint name="joint1" value="-1.4"/>
+        <joint name="joint2" value="1.6448"/>
+        <joint name="joint3" value="-2.09"/>
+        <joint name="joint4" value="0"/>
+    </group_state>
+    <group_state name="claw_release" group="claw">
+        <joint name="joint5" value="0.9083"/>
+    </group_state>
+    <group_state name="claw_grap" group="claw">
+        <joint name="joint5" value="-0.1"/>
+    </group_state>
+    <group_state name="search_eggs" group="arm">
+        <joint name="arm_base" value="-1.57"/>
+        <joint name="joint1" value="-0.0414"/>
+        <joint name="joint2" value="1.2243"/>
+        <joint name="joint3" value="2.09"/>
+        <joint name="joint4" value="0"/>
+    </group_state>
+    <group_state name="egg_box1" group="arm">
+        <joint name="arm_base" value="-1.3727"/>
+        <joint name="joint1" value="-0.2402"/>
+        <joint name="joint2" value="-1.8179"/>
+        <joint name="joint3" value="-0.136"/>
+        <joint name="joint4" value="1.6943"/>
+    </group_state>
+    <group_state name="egg_box2" group="arm">
+        <joint name="arm_base" value="-1.5953"/>
+        <joint name="joint1" value="-0.1243"/>
+        <joint name="joint2" value="-1.56"/>
+        <joint name="joint3" value="-0.3834"/>
+        <joint name="joint4" value="1.57"/>
+    </group_state>
+    <group_state name="egg_box3" group="arm">
+        <joint name="arm_base" value="-1.9911"/>
+        <joint name="joint1" value="-0.3231"/>
+        <joint name="joint2" value="-1.8921"/>
+        <joint name="joint3" value="-0.0618"/>
+        <joint name="joint4" value="1.57"/>
+    </group_state>
+    <group_state name="egg_box4" group="arm">
+        <joint name="arm_base" value="-1.348"/>
+        <joint name="joint1" value="0.174"/>
+        <joint name="joint2" value="-1.2738"/>
+        <joint name="joint3" value="-0.1855"/>
+        <joint name="joint4" value="1.57"/>
+    </group_state>
+    <group_state name="egg_box5" group="arm">
+        <joint name="arm_base" value="-1.5706"/>
+        <joint name="joint1" value="0.2071"/>
+        <joint name="joint2" value="-1.2985"/>
+        <joint name="joint3" value="-0.1855"/>
+        <joint name="joint4" value="1.57"/>
+    </group_state>
+    <group_state name="egg_box6" group="arm">
+        <joint name="arm_base" value="-1.8427"/>
+        <joint name="joint1" value="0.3728"/>
+        <joint name="joint2" value="-1.0512"/>
+        <joint name="joint3" value="-0.235"/>
+        <joint name="joint4" value="1.57"/>
+    </group_state>
+    <group_state name="search_eggs2" group="arm">
+        <joint name="arm_base" value="-1.0017"/>
+        <joint name="joint1" value="-0.2071"/>
+        <joint name="joint2" value="0.8038"/>
+        <joint name="joint3" value="2.09"/>
+        <joint name="joint4" value="-0.6802"/>
+    </group_state>
+    <group_state name="search_eggs3" group="arm">
+        <joint name="arm_base" value="-2.09"/>
+        <joint name="joint1" value="-0.3231"/>
+        <joint name="joint2" value="0.6554"/>
+        <joint name="joint3" value="2.09"/>
+        <joint name="joint4" value="1.5459"/>
+    </group_state>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="arm_base" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="arm_base" link2="joint1" reason="Adjacent"/>
+    <disable_collisions link1="arm_base" link2="joint2" reason="Never"/>
+    <disable_collisions link1="joint1" link2="joint2" reason="Adjacent"/>
+    <disable_collisions link1="joint2" link2="joint3" reason="Adjacent"/>
+    <disable_collisions link1="joint2" link2="joint4" reason="Never"/>
+    <disable_collisions link1="joint3" link2="joint4" reason="Adjacent"/>
+    <disable_collisions link1="joint4" link2="joint5" reason="Adjacent"/>
+</robot>

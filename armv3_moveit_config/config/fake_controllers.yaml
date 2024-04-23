@@ -1,0 +1,25 @@
+controller_list:
+  - name: fake_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - arm_base
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+  - name: fake_claw_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint5
+  - name: fake_camera_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+initial:  # Define initial robot poses per group
+  - group: arm
+    pose: arm_default
+  - group: claw
+    pose: claw_release

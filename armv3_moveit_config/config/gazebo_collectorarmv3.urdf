@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="collectorarmv3">
+    <link name="base_link">
+        <inertial>
+            <origin xyz="-0.000431995749256772 -2.75875484660184E-06 -0.0406498758316452" rpy="0 0 0" />
+            <mass value="10.9600818997221" />
+            <inertia ixx="0.0945300643837808" ixy="-0.000223188735937972" ixz="0.000290844995432058" iyy="0.129474221651259" iyz="1.85713367578688E-06" izz="0.19332472651431" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="arm_base">
+        <inertial>
+            <origin xyz="3.96827550051507E-19 2.0171905535581E-18 0.0360865793498005" rpy="0 0 0" />
+            <mass value="0.665047517627195" />
+            <inertia ixx="0.000801321710505508" ixy="3.3881317890172E-21" ixz="-9.62737282624216E-21" iyy="0.0007819945070614" iyz="-5.9031349403871E-21" izz="0.000931687532031113" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/arm_base.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/arm_base.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="arm_base" type="revolute">
+        <origin xyz="0.1103 0.00070444 0" rpy="0.015992 0.00035692 -3.1094" />
+        <parent link="base_link" />
+        <child link="arm_base" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.09" upper="2.09" effort="1.96" velocity="2.09" />
+    </joint>
+    <link name="joint1">
+        <inertial>
+            <origin xyz="-1.06007213437332E-17 -0.0527192038585681 -1.48227086225832E-17" rpy="0 0 0" />
+            <mass value="0.121429178051326" />
+            <inertia ixx="0.000117162142598077" ixy="-3.28382906299749E-21" ixz="-1.05879118406788E-20" iyy="4.05821278174089E-05" iyz="6.06377417822124E-22" izz="8.93455922872461E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint1" type="revolute">
+        <origin xyz="0 0 0.0735" rpy="-1.5708 0 -1.5708" />
+        <parent link="arm_base" />
+        <child link="joint1" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.40" upper="1.40" effort="1.96" velocity="2.09" />
+    </joint>
+    <link name="joint2">
+        <inertial>
+            <origin xyz="8.06987396623172E-19 -0.0464329078590103 4.00725548587514E-18" rpy="0 0 0" />
+            <mass value="0.131283140376496" />
+            <inertia ixx="0.000146883833506881" ixy="-2.08493411388024E-21" ixz="-4.02340649945793E-21" iyy="4.57093102663371E-05" iyz="-1.27029789240976E-20" izz="0.000115415073146958" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint2" type="revolute">
+        <origin xyz="0 -0.1045 0" rpy="0 0 0" />
+        <parent link="joint1" />
+        <child link="joint2" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.09" upper="2.09" effort="1.96" velocity="2.09" />
+    </joint>
+    <link name="joint3">
+        <inertial>
+            <origin xyz="-0.0103919780315799 -0.0307503516421673 -2.41086000142766E-18" rpy="0 0 0" />
+            <mass value="0.219866762368024" />
+            <inertia ixx="0.000172745723837527" ixy="2.03545346580772E-06" ixz="-7.19978005166155E-21" iyy="0.000115202012236034" iyz="-5.95712739238095E-21" izz="0.000159888587287608" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint3" type="revolute">
+        <origin xyz="0 -0.099 0" rpy="0 0 0" />
+        <parent link="joint2" />
+        <child link="joint3" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.09" upper="2.09" effort="1.96" velocity="2.09" />
+    </joint>
+    <link name="joint4">
+        <inertial>
+            <origin xyz="-0.000277596392932254 -0.0281145025536526 -0.0370410686683645" rpy="0 0 0" />
+            <mass value="0.0877692790033938" />
+            <inertia ixx="6.59352873168157E-05" ixy="5.20638167332848E-07" ixz="5.88851346028871E-07" iyy="8.0183922926345E-05" iyz="-1.1639612690601E-05" izz="4.3801038610085E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint4.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint4.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint4" type="revolute">
+        <origin xyz="-0.021 -0.073972 0" rpy="-2.6203 -1.5708 1.0833" />
+        <parent link="joint3" />
+        <child link="joint4" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-2.09" upper="2.09" effort="1.96" velocity="2.09" />
+    </joint>
+    <link name="joint5">
+        <inertial>
+            <origin xyz="0.0107453852867667 -0.0401379763855603 -2.16840434497101E-18" rpy="0 0 0" />
+            <mass value="0.106491203259952" />
+            <inertia ixx="7.00067496887712E-05" ixy="1.26099042598823E-05" ixz="9.63499977501767E-21" iyy="6.8864089032206E-05" iyz="-2.64697796016969E-21" izz="5.43700689342052E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint5.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://collectorarmv3/meshes/joint5.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint5" type="revolute">
+        <origin xyz="-0.0015 0 -0.0085873" rpy="1.5708 0.71778 -1.5708" />
+        <parent link="joint4" />
+        <child link="joint5" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-0.1" upper="2.09" effort="1.96" velocity="2.09" />
+    </joint>
+    <transmission name="trans_arm_base">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm_base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm_base_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_joint5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint5">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint5_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+
