@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="collectorarmv2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000431995749256772 -2.75875484660618E-06 -0.0406498758316452"
+        rpy="0 0 0" />
+      <mass
+        value="10.9600818997221" />
+      <inertia
+        ixx="0.0945300643837808"
+        ixy="-0.000223188735937972"
+        ixz="0.000290844995432054"
+        iyy="0.129474221651259"
+        iyz="1.85713367578688E-06"
+        izz="0.19332472651431" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="arm_base">
+    <inertial>
+      <origin
+        xyz="1.1157619086071E-18 0.0360865793498005 7.99712430050987E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.665047517627195" />
+      <inertia
+        ixx="0.0007819945070614"
+        ixy="2.47995010879609E-21"
+        ixz="-6.7762635780344E-21"
+        iyy="0.000931687532031113"
+        iyz="-2.1398259955003E-20"
+        izz="0.000801321710505508" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/arm_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/arm_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm_base"
+    type="revolute">
+    <origin
+      xyz="0.1103 0.00070444 0"
+      rpy="1.5721 -0.015939 -1.6007" />
+    <parent
+      link="base_link" />
+    <child
+      link="arm_base" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+  <link
+    name="joint1">
+    <inertial>
+      <origin
+        xyz="0.0527192038585681 -1.54815407248513E-17 -2.68030681275532E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.121429178051326" />
+      <inertia
+        ixx="4.05821278174089E-05"
+        ixy="-5.40513513381651E-21"
+        ixz="1.58348001003703E-21"
+        iyy="0.000117162142598077"
+        iyz="1.86347248395946E-20"
+        izz="8.9345592287246E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0.0735 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="arm_base" />
+    <child
+      link="joint1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+  <link
+    name="joint2">
+    <inertial>
+      <origin
+        xyz="0.0464329078590103 1.32340629148846E-17 1.32916896812596E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.131283140376496" />
+      <inertia
+        ixx="4.5709310266337E-05"
+        ixy="-3.34002577594654E-20"
+        ixz="8.06631896476912E-21"
+        iyy="0.000115443121587368"
+        iyz="9.3907557455089E-07"
+        izz="0.000146855785066471" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.1045 0 0"
+      rpy="1.6007 0 0" />
+    <parent
+      link="joint1" />
+    <child
+      link="joint2" />
+    <axis
+      xyz="0 0.99955 -0.029855" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+  <link
+    name="joint3">
+    <inertial>
+      <origin
+        xyz="-0.0307503516421674 0.000310250693801396 -0.0103873457589432"
+        rpy="0 0 0" />
+      <mass
+        value="0.219866762368024" />
+      <inertia
+        ixx="0.000115202012236034"
+        ixy="-6.07681086360931E-08"
+        ixz="2.03454615293962E-06"
+        iyy="0.000159900046989999"
+        iyz="-3.8367647008022E-07"
+        izz="0.000172734264135135" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.099 0 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="joint2" />
+    <child
+      link="joint3" />
+    <axis
+      xyz="0 0.99955 0.029855" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+  <link
+    name="joint4">
+    <inertial>
+      <origin
+        xyz="0.000277596491360573 0.0281145015949774 -0.0370410684025041"
+        rpy="0 0 0" />
+      <mass
+        value="0.0877692802651216" />
+      <inertia
+        ixx="6.59352913098412E-05"
+        ixy="5.20638090038389E-07"
+        ixz="-5.88851151330627E-07"
+        iyy="8.01839238032544E-05"
+        iyz="1.1639614467936E-05"
+        izz="4.38010426696893E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="-0.073972 0.00062695 -0.020991"
+      rpy="1.5708 -0.029859 1.5708" />
+    <parent
+      link="joint3" />
+    <child
+      link="joint4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2.09"
+      upper="2.09"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+  <link
+    name="joint5">
+    <inertial>
+      <origin
+        xyz="0.0107453852867667 0.0401379763855604 -5.85469173142172E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.106491203259952" />
+      <inertia
+        ixx="7.00067496887712E-05"
+        ixy="-1.26099042598823E-05"
+        ixz="1.6940658945086E-21"
+        iyy="6.88640890322059E-05"
+        iyz="-1.90582413132218E-21"
+        izz="5.43700689342052E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://collectorarmv2/meshes/joint5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0.0015 0 -0.0085873"
+      rpy="-1.5708 0.71778 1.5708" />
+    <parent
+      link="joint4" />
+    <child
+      link="joint5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="2.09"
+      effort="1.96"
+      velocity="2.09" />
+  </joint>
+</robot>

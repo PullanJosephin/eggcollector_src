@@ -1,0 +1,32 @@
+<launch>
+  <!-- Arguments参数 -->
+  <arg name="car_mode"  default="mini_tank" />
+  <arg name="if_voice" default="false"/>
+  
+  <!-- 用于robot_state_publisher节点-->
+  <node pkg="tf" type="static_transform_publisher" name="base_to_link" args="0 0 0.1 0 0 0 base_footprint base_link 100" />
+ 
+  <!--差速系列 -->
+  <!-- car_mode and tf  mini_tank-->
+  <group if="$(eval car_mode == 'mini_tank')">
+      <!-- 用于雷达节点，后面同理不再赘述-->
+      <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.04 0.00 0.21 3.14 0 0  base_footprint laser 100" />
+      <!-- 用于摄像头相关节点，如3d建图导航，后面同理不再赘述-->
+     <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_camera" args="0.1 0.00 0.16 0 0 0   base_footprint camera_link 100" />-->
+      <node pkg="tf" type="static_transform_publisher" name="base_to_gyro" args="0 0 0 0 0 0 base_footprint gyro_link 100" />
+    </group>
+ 
+  <!-- URDF 标准化机器人描述格式 -->
+ 
+
+  <!--差速系列 -->
+  <group if="$(eval car_mode == 'mini_tank')">
+      <param name = "robot_description" textfile = "$(find collectorarmv3)/urdf/collectorarmv3.urdf"/> 
+  </group>
+
+  <!-- 订阅话题：/joint_states，发布小车TF信息-->
+  <node unless="$(eval (car_mode=='mini_mec_moveit_six' or car_mode=='mini_4wd_moveit_six') and if_voice==true)" name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+ </launch>
+
+
