@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+   
+   <node pkg="yolov5ros" type="detect1.py" name="detect1" output="screen" >
+   </node>
+   
+   <node pkg="yolov5ros" type="pic_put_node" name="pic_put" output="screen">
+   </node>
+   
+</launch>    

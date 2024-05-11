@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: collectorarmv3
+    relative_path: urdf/collectorarmv3.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/collectorarmv3.srdf
+  CONFIG:
+    author_name: PJ
+    author_email: pullanjosephin@gmail.com
+    generated_timestamp: 1715366337
