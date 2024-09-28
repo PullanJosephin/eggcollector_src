@@ -1,4 +1,4 @@
-#this robot is used to collect eggs in scattered chicken houses. It is able to use slam to navigate itself to the designatted places, and search for eggs in the near area.
+#this robot is used to collect eggs in scattered duck houses. It is able to use slam to navigate itself to the designatted places, and search for eggs in the near area.
 #slam algorithm is cartographer, object detection algorithm is yolov5, the arm uses MoveIt! for planning, there isn't much original algorithm. Before running, you'll need to install the requirements first.
 #this robot still has a lot of drawbacks, and will not be maintained by the author anymore, If any one wants to push through, contact the author or publish issues
 #main fold of the egg collector, only essential packs.
