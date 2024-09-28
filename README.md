@@ -1,6 +1,6 @@
 # Egg Collector Robot
 
-This robot is used to collect eggs in scattered duck houses. It is able to use SLAM to navigate itself to the designated places and search for eggs in the nearby area.
+This robot is used to collect scattered eggs in duck houses. It is able to use SLAM to navigate itself to the designated places and search for eggs in the nearby area.
 
 ## Algorithms Used
 - **SLAM Algorithm**: Cartographer
